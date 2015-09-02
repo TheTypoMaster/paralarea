@@ -133,7 +133,7 @@ define(["dojo", "dijit", "dojox", "dojo/text!./resources/Lightbox.html", "dijit/
 	Lightbox.LightboxDialog = dojo.declare("dojox.image.LightboxDialog",
 		dijit.Dialog, {
 		// summary:
-		//		The "dialog" shared	 between any Lightbox instances on the page, publically available
+		//		The "dialog" shared	 between any Lightbox instances on the page, publicly available
 		//		for programmatic manipulation.
 		// description:
 		//		A widget that intercepts anchor links (typically around images)
