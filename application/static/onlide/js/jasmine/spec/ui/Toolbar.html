@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../../../dijit/themes/claro/claro.css">
+</head>
+<body class="claro">
+<div id="view"></div>
+<script>
+    var dojoConfig = {
+        async: true
+    };
+</script>
+<script src="../../../dojo/dojo.js"></script>
+<script>
+    require([
+            "onlide/ui/Toolbar",
+            "dijit/form/Button",
+            "onlide/utils"
+    ], function(Toolbar, Button, utils){
+        var toolbar = new Toolbar();
+        var widget = utils.fromDijitWidget(new Button({label: "Тестовая"}));
+
+        toolbar.place("view");
+        Array.prototype.forEach.call(["Cut", "Copy", "Paste"], function(label){
+            var button = new Button({
+                label: label,
+                showLabel: false,
+                iconClass: "dijitEditorIcon dijitEditorIcon"+label
+            });
+            button = utils.fromDijitWidget(button);
+            toolbar.addWidget(button);
+        });
+        toolbar.addWidget(widget);
+        toolbar.removeWidget(widget);
+
+    });
+</script>
+
+</body>

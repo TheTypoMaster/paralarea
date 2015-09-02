@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../../../dijit/themes/claro/claro.css">
+</head>
+<body class="claro">
+<div id="view"></div>
+<script>
+    var dojoConfig = {
+        async: true
+    };
+
+</script>
+<script src="../../../dojo/dojo.js"></script>
+<script>
+    require([
+            "onlide/ui/Statusbar",
+            "onlide/ui/Pane",
+            "onlide/utils"
+    ], function(Statusbar, Pane){
+
+        var infobar = new onlide.ui.Statusbar();
+        var pane1 = new Pane({content: "", onClick: function(){alert(42);}});
+        var pane2 = new Pane();
+        var pane3 = new Pane();
+        var pane4 = new Pane();
+
+        infobar.place("view");
+        pane1.setContent("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, deserunt.");
+        pane2.setContent("Тестовый текст справа 2");
+        pane3.setContent("Тестовый текст справа 3");
+        pane4.setContent("Тестовый текст справа 4");
+
+        infobar.showMessage("Тестовый текст слева");
+        infobar.addPane(pane1);
+        infobar.addPane(pane2);
+        infobar.addPane(pane3);
+        infobar.addPane(pane4);
+        infobar.getPane(pane1.getId()).setContent("Тестовый текст справа 1");
+        infobar.removePane(pane4);
+
+    });
+</script>
+
+</body>
+</html>

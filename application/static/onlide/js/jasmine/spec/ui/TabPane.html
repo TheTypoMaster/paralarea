@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../../../dijit/themes/claro/claro.css">
+</head>
+<body class="claro">
+<div id="view"></div>
+<script>
+    var dojoConfig = {
+        async: true
+    };
+</script>
+<script src="../../../dojo/dojo.js"></script>
+<script>
+    require([
+            "onlide/ui/TabPane",
+            "onlide/ui/Pane"
+    ], function(TabPane, Pane){
+
+        var tabpane = new TabPane();
+        var pane1 = new Pane({content:"Тестовый текст 1"});
+        var pane2 = new Pane({content:"Тестовый текст 2"});
+        var pane3 = new Pane({content:"Тестовый текст 3"});
+
+        tabpane.place("view");
+        tabpane.addWidget(pane1, "Тестовый 1");
+        tabpane.addWidget(pane2, "Тестовый 2");
+        tabpane.addWidget(pane3, "Тестовый 3");
+        tabpane.addWidget(pane3, "Тестовый 3");
+
+        //tabpane.removeWidget(pane3);
+        //tabpane.removeAllWidgets();
+
+        tabpane.selectWidget(pane2);
+
+    });
+</script>
+
+</body>

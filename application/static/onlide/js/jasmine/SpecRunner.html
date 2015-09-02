@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jasmine Spec Runner v2.3.4</title>
+
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.3.4/jasmine_favicon.png">
+    <link rel="stylesheet" href="lib/jasmine-2.3.4/jasmine.css">
+
+    <script src="lib/jasmine-2.3.4/jasmine.js"></script>
+    <script src="lib/jasmine-2.3.4/jasmine-html.js"></script>
+    <script src="lib/jasmine-2.3.4/boot.js"></script>
+
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #view-container{
+            width: 60%;
+            height: 100%;
+            float: right;
+        }
+
+        .jasmine_html-reporter{
+            width: 40% !important;
+            height: 100% !important;
+            overflow-y: scroll !important;
+            float: left !important;
+        }
+    </style>
+
+    <script>
+        var dojoConfig = {
+            async: true
+        };
+    </script>
+    <link rel="stylesheet" href="../dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="../dijit/themes/dijit.css">
+    <script src="../dojo/dojo.js"></script>
+    <script>
+        function clearView(){
+            var viewNode = document.getElementById("view");
+            viewNode.innerHTML = "";
+        }
+    </script>
+
+    <!-- Specs -->
+    <script>
+
+        window.onlide = {
+            debugMode: true
+        };
+
+        require([
+            "./spec/ClassSpec.js",
+            "./spec/base/EventEmitterSpec.js",
+            "./spec/base/WidgetBaseSpec.js",
+            "./spec/project/ProjectSpec.js"
+        ], function(){});
+    </script>
+
+</head>
+<body class="claro">
+    <div id="view-container">
+        <div id="view"></div>
+    </div>
+</body>
+</html>

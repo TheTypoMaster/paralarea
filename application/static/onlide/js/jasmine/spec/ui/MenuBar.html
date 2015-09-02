@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../../../dijit/themes/claro/claro.css">
+</head>
+<body class="claro">
+<div id="view"></div>
+<script>
+    var dojoConfig = {
+        async: true
+    };
+</script>
+<script src="../../../dojo/dojo.js"></script>
+<script>
+    require([
+            "onlide/ui/MenuBar"
+    ], function(MenuBar){
+
+        var menubar = new MenuBar();
+        menubar.place("view");
+
+        var menu1 = menubar.addMenu({label: "Файл"});
+        var menu2 = menubar.addMenu({label: "Редактирование"});
+
+        menu1.addItem(new MenuBar.Action({
+            onClick: function(){
+                alert("Создать");
+            },
+            label: "Создать"
+        }));
+        var item = menu1.addItem(new MenuBar.Menu({
+            label: "Добавить",
+            items: [
+                new MenuBar.Action({
+                    onClick: function(){
+                        alert("Добавить файл");
+                    },
+                    label: "Файл"
+                }),
+                new MenuBar.Action({
+                    type: "separator"
+                }),
+                new MenuBar.Action({
+                    onClick: function(){
+                        alert(this.isChecked());
+                    },
+                    label: "Класс",
+                    type: "checked"
+                })
+            ]
+        }));
+
+    });
+</script>
+
+</body>

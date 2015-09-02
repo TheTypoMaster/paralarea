@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../../../dijit/themes/tundra/tundra.css">
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body class="tundra">
+<div id="view"></div>
+<script>
+    var dojoConfig = {
+        async: true
+    };
+</script>
+<script src="../../../dojo/dojo.js"></script>
+<script>
+    require([
+            "onlide/project/Project",
+            "onlide/project/ProjectView"
+
+    ], function(Project, ProjectView){
+
+        var project, view;
+
+        project = new Project("My Project");
+        view    = new ProjectView();
+
+        view.setProject(project);
+
+        view.place("view");
+
+        project.createFolder("folder1");
+        project.createFolder("folder2");
+
+        project.appendFile("folder1/file1");
+        project.appendFile("folder2/file2");
+
+        project.appendFile("file3");
+
+
+    });
+</script>
+
+</body>
