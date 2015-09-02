@@ -1,0 +1,8 @@
+{
+  "project": {
+    "url": "http://localhost:9292",
+    "type": "jsonrpc2",
+    "need_auth": true,
+    "add_login": true
+  }
+}

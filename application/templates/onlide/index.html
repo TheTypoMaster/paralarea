@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Onlide - онлайн-среда разработки программ</title> 
+        <link rel="stylesheet" href="static/onlide/style/dojo/flat.css">
+        <link rel="stylesheet" href="static/onlide/js/codemirror/lib/codemirror.css"/>
+
+        <style>        
+            html, body, #main{
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+                                                                                                            
+    </head>
+
+    <body>
+        <div id="main"></div>
+
+        <script>
+            function closeOrNot(e) {
+                if(!e) e = window.event;
+                e.cancelBubble = true;
+                e.returnValue = 'Уже уходите?';
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+            }
+            window.onbeforeunload=closeOrNot;
+        </script>
+
+        <script>
+            var dojoConfig = {
+                async: true,
+                parseOnLoad: false
+            };
+        </script>
+        <script src="static/onlide/js/dojo/dojo.js"></script>
+        <script src="static/onlide/js/onlide/utils.js"></script>
+        <script>
+
+            require([
+                    "onlide/App"
+            ], function(){
+                onlide.App.initialize();
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{% block head %}
+<link rel="stylesheet" href="static/css/login.css">
+{% endblock %}
+
+{% block content %}
+        <div id="content">
+            
+            <h1>Вход</h1>
+            
+            <form id="signin-form" method="post" action="">
+
+                {{form.hidden_tag()}}
+
+                <p> {{ form.login() }} <p/>
+                <p> {{ form.password() }} <p/>
+                <p>
+                    {{ form.remember_me() }} Запомнить?
+                    <button type="submit">Войти</button>
+                </p>
+                {% if message %}
+                    <div class="error">{{message}}</div>
+                {% endif %}
+            </form>
+        </div>
+{% endblock %}
